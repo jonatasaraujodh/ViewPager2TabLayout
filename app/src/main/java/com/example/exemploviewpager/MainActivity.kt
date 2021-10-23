@@ -10,7 +10,7 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
 
-private const val NUM_PAGES = 3
+private const val NUM_PAGES = 7
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,6 +26,8 @@ class MainActivity : AppCompatActivity() {
         viewPager = findViewById(R.id.view_pager)
         fragmentAdapter = PagerAdapter(this)
         viewPager.adapter = fragmentAdapter
+
+        viewPager.setPageTransformer(ZoomOutPageTransformer())
 
         tabs = findViewById(R.id.tabs)
         TabLayoutMediator(tabs,viewPager){tab, position ->
